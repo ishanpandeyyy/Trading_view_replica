@@ -1,0 +1,27 @@
+:root{--bg:#131722;--panel:#1e222d;--line:#2a2e39;--txt:#d1d4dc;--mut:#787b86;--up:#089981;--dn:#f23645;--blue:#2962ff}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{display:flex;flex-direction:column;background:var(--bg);color:var(--txt);font:13px -apple-system,"Trebuchet MS",system-ui,sans-serif}
+header{display:flex;align-items:center;gap:16px;padding:8px 12px;border-bottom:1px solid var(--line);background:var(--panel)}
+#status{margin-left:auto;color:var(--mut)}
+select,button{background:var(--panel);color:var(--txt);border:1px solid var(--line);border-radius:4px;padding:3px 6px;font:inherit}
+button{cursor:pointer} button:hover{background:#2a2e39}
+#grid{flex:1;min-height:0;display:grid;gap:2px;background:var(--bg)}
+.pane{display:flex;flex-direction:column;min-width:0;min-height:0;background:var(--panel)}
+.bar{display:flex;align-items:center;gap:8px;padding:5px 8px;border-bottom:1px solid var(--line)}
+.bar label{color:var(--mut);display:flex;gap:3px;align-items:center}
+.ticker{display:flex;align-items:baseline;gap:10px;padding:4px 8px;font-variant-numeric:tabular-nums;white-space:nowrap;overflow:hidden}
+.ticker .name{font-weight:600}.ticker .px{font-size:18px;font-weight:600}
+.ticker .chg.up{color:var(--up)}.ticker .chg.dn{color:var(--dn)}.ticker .leg{color:var(--mut);font-size:12px}.ticker i{font-style:normal;margin-left:6px}
+.ticker.flash-up{animation:fu .5s}.ticker.flash-dn{animation:fd .5s}
+@keyframes fu{from{background:rgba(8,153,129,.6)}to{background:var(--panel)}}
+@keyframes fd{from{background:rgba(242,54,69,.6)}to{background:var(--panel)}}
+.body{flex:1;min-height:0;display:flex}
+.tools{width:34px;display:flex;flex-direction:column;gap:3px;padding:4px 2px;border-right:1px solid var(--line)}
+.tools button{border:0;background:none;font-size:16px;padding:5px 0;color:var(--txt)}
+.tools button.on{background:var(--blue);color:#fff}
+.chart{flex:1;min-width:0;position:relative;background:#fff}
+.ov{position:absolute;left:0;top:0;pointer-events:none;z-index:2}
+.nav{position:absolute;left:8px;bottom:34px;z-index:3;display:flex;gap:6px;opacity:.85}
+.nav button{width:28px;height:28px;padding:0;background:#2a2e39;color:#fff;border:0;border-radius:6px;font-size:16px}
+.err{position:absolute;left:8px;top:8px;z-index:3;color:var(--dn)}
